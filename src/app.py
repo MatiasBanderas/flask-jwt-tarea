@@ -68,6 +68,15 @@ def serve_any_other_file(path):
     response.cache_control.max_age = 0 # avoid cache memory
     return response
 
+#app de la tarea inicia aquí
+
+@app.route("/create-user", methods=["POST"])
+def createUser():
+    user=User()
+    user.id = request.json.get("id")
+    user.email = request.json.get("email")
+    user.password = request.json.get("password")
+
 
 @app.route("/token", methods=["POST"])
 def create_token():
